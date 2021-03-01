@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+<h1>Bienvenido {{ user.username }}, esta es tu pagina personal</h1>
+    {{usuario}}
+<h2>Numero de prueba: {{ num }}</h2>
+    <p>Aqui puedes editar tu perfil de usuairo</p>
+    <a href="{% url 'profile_update' usuario %}">Editar perfil</a><br><br>
+
+{% if num == 0 %}
+<a href="">Establecer un color para el fondo de pantalla</a>
+
+{% else %}
+<a href="{% url 'profile_update' usuario %}">Cambiar el color al fondo de pantalla</a>
+
+{% endif %}
+
+{% endblock %}

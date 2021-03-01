@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Bienvenido a la pagina de tu Perfil</h1>
+
+    {% if user.is_authenticated %}
+
+        <p>hola usuairo autenticado</p>
+        <p>{{ numero }}</p>
+
+
+    <form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit" />
+
+</form>
+    {% endif %}
+
+</body>
+</html>

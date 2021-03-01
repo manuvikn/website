@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        {% if user.is_authenticated %}
+            body{
+                background-color:{{ data.fondo }};
+            color : {{ data.letra }};
+        }
+        {% else %}
+            {% if request.session.fondo and request.session.letra %}
+                body{
+                    background-color:{{ request.session.fondo }};
+                    color : {{ request.session.letra }};
+                }
+            {% endif %}
+        {% endif %}
+
+    </style>
+
+</head>
+<body>
+    {% block content %}
+    <h1>Bienvenido a la pagina principal del proyecto Django</h1>
+
+
+
+    {% if user.is_authenticated %}
+    <p>{{ user.username }}</p>
+        <p>hola usuario autenticado</p>
+    <a href="{% url 'profile_detail' user.pk %}">pagina personal</a>
+    {% else  %}
+    <a href="{% url 'apariencia' %}">Apariencia</a>
+
+    {% endif %}
+    {% endblock %}
+</body>
+</html>

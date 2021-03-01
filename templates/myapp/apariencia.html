@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+<h1>Bienvenido a la página de apariencia</h1>
+
+
+<a href="{% url 'apariencia_uno' %}">Cambiar fondo azul y letra amarilla</a>
+<br><br>
+<a href="{% url 'apariencia_dos' %}">Cambiar fondo verde y letra rosa</a>
+
+{% endblock %}
